@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BeSafe Insurance and Pollution</title>
+    <link rel="icon" href="Images/png" type="image/x-icon">
+    <link rel="stylesheet" href="besafe.css">
+</head>
+
+<body>
+    <canvas id="bg-canvas"></canvas>
+    <header>
+        <a href="#" class="logo-link">
+            <img src="Images/png" alt="BeSafe Logo">
+            <h1>BeSafe Insurance and Pollution</h1>
+        </a>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav id="nav-menu">
+            <a href="#homediv" onclick="toggleMenu()">Home</a>
+            <a href="#servicesdiv" onclick="toggleMenu()">Services</a>
+            <a href="#plansdiv" onclick="toggleMenu()">Insurance Plans</a>
+            <a href="#branchdiv" onclick="toggleMenu()">Branches</a>
+            <a href="#contactdiv" onclick="toggleMenu()">Contact</a>
+        </nav>
+    </header>
+
+    <section class="homediv page-max" id="homediv">
+        <div class="animation-container">
+            <!-- Logo that gets clicked -->
+            <img id="intro-logo" class="intro-logo" src="Images/png" alt="App Logo">
+
+            <!-- Mouse Cursor -->
+            <div id="intro-cursor" class="intro-cursor"></div>
+
+            <!-- Quote Container (Hidden initially) -->
+            <div id="quote-container" class="quote-container">
+                <h2 class="quote-text">Where Besafe is more than a name, its our promise.</h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="servicesdiv" id="servicesdiv">
+        <div class="serv serv1">Pollution Testing</div>
+        <div class="serv serv2">Vehicle Insurance</div>
+        <div class="serv serv3">Health Insurance</div>
+        <div class="serv serv4">Life Insurance</div>
+        <div class="serv serv5">General Insurance</div>
+    </section>
+
+    <section class="plansdiv page-max" id="plansdiv">
+        <h2 class="plans-title">Third Party Insurance Rates</h2>
+
+        <div class="plans-container">
+            <!-- TWO WHEELER CARD -->
+            <div class="plan-card">
+                <h3>Two Wheeler</h3>
+                <table class="plan-table">
+                    <thead>
+                        <tr>
+                            <th>Engine CC</th>
+                            <th>Liability</th>
+                            <th>PA Cover</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>75cc - 150cc</td>
+                            <td>₹843</td>
+                            <td>₹325</td>
+                            <td class="plan-price">₹1,167</td>
+                        </tr>
+                        <tr>
+                            <td>150cc - 350cc</td>
+                            <td>₹1,612</td>
+                            <td>₹325</td>
+                            <td class="plan-price">₹1,937</td>
+                        </tr>
+                        <tr>
+                            <td>350cc & Higher</td>
+                            <td>₹3,308</td>
+                            <td>₹325</td>
+                            <td class="plan-price">₹3,633</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- FOUR WHEELER CARD -->
+            <div class="plan-card">
+                <h3>Four Wheeler (Private Car)</h3>
+                <table class="plan-table">
+                    <thead>
+                        <tr>
+                            <th>Engine CC</th>
+                            <th>Liability + Drv</th>
+                            <th>PA Cover</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Less than 1000cc</td>
+                            <td>₹2,480 + ₹50</td>
+                            <td>₹325</td>
+                            <td class="plan-price">₹2,855</td>
+                        </tr>
+                        <tr>
+                            <td>1000cc - 1500cc</td>
+                            <td>₹4,040 + ₹50</td>
+                            <td>₹325</td>
+                            <td class="plan-price">₹4,415</td>
+                        </tr>
+                        <tr>
+                            <td>1500cc & Higher</td>
+                            <td>₹9,323 + ₹50</td>
+                            <td>₹325</td>
+                            <td class="plan-price">₹9,703</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="more-info-container">
+            <a href="#contactdiv" class="more-info-btn">Get a Quote / More Info</a>
+        </div>
+    </section>
+
+    <section class="branchdiv page-max" id="branchdiv">
+        <h2 class="plans-title">Our Branches</h2>
+        <div class="branch-container">
+            <!-- Muttikadav -->
+            <a href="#" class="branch-card">
+                <div class="branch-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                    </svg>
+                </div>
+                <h3>Muttikadav</h3>
+
+            </a>
+
+            <!-- Akampadam -->
+            <a href="#" class="branch-card">
+                <div class="branch-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                    </svg>
+                </div>
+                <h3>Akampadam</h3>
+
+            </a>
+
+            <!-- Karulai -->
+            <a href="#" class="branch-card">
+                <div class="branch-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                    </svg>
+                </div>
+                <h3>Karulai</h3>
+
+            </a>
+        </div>
+    </section>
+
+    <section class="contactdiv page-max" id="contactdiv">
+        <div class="contact-form-container">
+            <h2>Get in Touch</h2>
+            <form id="contactForm" onsubmit="sendToWhatsApp(event)">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" required placeholder="Enter your phone number">
+                </div>
+                <div class="form-group">
+                    <label for="vehicle">Vehicle Number</label>
+                    <input type="text" id="vehicle" required placeholder="Enter vehicle number">
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container page-max">
+
+            <!-- 1. Quick Links -->
+            <div class="footer-col footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#homediv">Home</a></li>
+                    <li><a href="#servicesdiv">Services</a></li>
+                    <li><a href="#plansdiv">Insurance Plans</a></li>
+                    <li><a href="#branchdiv">Branches</a></li>
+                    <li><a href="#contactdiv">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- 2. Social Media -->
+            <div class="footer-col footer-socials">
+                <h4>Connect With Us</h4>
+                <div class="social-icons">
+                    <!-- Instagram -->
+                    <a href="#" class="social-icon insta" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg>
+                    </a>
+
+                    <!-- WhatsApp -->
+                    <a href="#" class="social-icon wa" aria-label="WhatsApp">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+                        </svg>
+                    </a>
+
+                    <!-- Facebook -->
+                    <a href="#" class="social-icon fb" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg>
+                    </a>
+
+                    <!-- YouTube -->
+                    <a href="#" class="social-icon yt" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 3. Branding -->
+            <div class="footer-col footer-brand">
+                <div class="footer-logo-row">
+                    <img src="Images/png" alt="BeSafe Insurance and Pollution">
+                    <h2>BeSafe Insurance and Pollution</h2>
+                </div>
+                <p style="color: #666; font-size: 14px; margin-top: 10px;">
+                    Besafe the complete Insurace solution.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Besafe Insurance and Pollution. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+
+        menuToggle.addEventListener('click', () => {
+            toggleMenu();
+        });
+
+        function toggleMenu() {
+            menuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        }
+
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const vehicle = document.getElementById('vehicle').value;
+
+            const message = `Hello BeSafe, I would like to know more.\n\nName: ${name}\nPhone: ${phone}\nVehicle Number: ${vehicle}`;
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappNumber = "917356906050";
+
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+        }
+
+        // --- ANIMATION LOGIC ---
+        window.addEventListener('load', () => {
+            const cursor = document.getElementById('intro-cursor');
+            const logo = document.getElementById('intro-logo');
+            const quoteContainer = document.getElementById('quote-container');
+
+            // 1. Move Cursor to Logo (Start after 500ms)
+            setTimeout(() => {
+                cursor.style.animation = "moveCursor 1.5s ease-in-out forwards";
+            }, 500);
+
+            // 2. Simulate Click (After movement ~1.5s)
+            setTimeout(() => {
+                cursor.style.animation = "clickCursor 0.3s ease forwards";
+                logo.style.transform = "scale(0.95)"; // Logo reacts to click
+            }, 2000);
+
+            // 3. App Opening Effect (After click ~2.3s)
+            setTimeout(() => {
+                // Fade out logo and cursor
+                logo.style.opacity = "0";
+                logo.style.transform = "scale(1.5)"; // Expand out
+                cursor.style.opacity = "0";
+
+                // Show quote
+                setTimeout(() => {
+                    logo.style.display = 'none';
+                    cursor.style.display = 'none';
+
+                    quoteContainer.style.opacity = "1";
+                    quoteContainer.style.transform = "scale(1)";
+                }, 500); // Wait for logo fade out
+
+            }, 2300);
+        });
+
+        // --- BACKGROUND CANVAS ANIMATION ---
+        (function () {
+            const canvas = document.getElementById('bg-canvas');
+            const ctx = canvas.getContext('2d');
+            let width, height;
+            let particles = [];
+
+            // Configuration
+            const particleCount = 60; // Number of dots
+            const connectionDistance = 150; // Max distance to draw line
+            const mouseDistance = 200; // Interaction radius
+
+            // Mouse position
+            let mouse = { x: null, y: null };
+
+            window.addEventListener('mousemove', (e) => {
+                mouse.x = e.x;
+                mouse.y = e.y;
+            });
+
+            window.addEventListener('mouseout', () => {
+                mouse.x = null;
+                mouse.y = null;
+            });
+
+            // Resize handling
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            // Particle Class
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height;
+                    this.vx = (Math.random() - 0.5) * 1.5; // Velocity X
+                    this.vy = (Math.random() - 0.5) * 1.5; // Velocity Y
+                    this.size = Math.random() * 2 + 1; // Size 1-3px
+                    this.color = 'rgba(106, 177, 0, 0.6)'; // Accent green
+                }
+
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+
+                    // Bounce off edges
+                    if (this.x < 0 || this.x > width) this.vx *= -1;
+                    if (this.y < 0 || this.y > height) this.vy *= -1;
+
+                    // Mouse interaction
+                    if (mouse.x != null) {
+                        let dx = mouse.x - this.x;
+                        let dy = mouse.y - this.y;
+                        let distance = Math.sqrt(dx * dx + dy * dy);
+                        if (distance < mouseDistance) {
+                            const forceDirectionX = dx / distance;
+                            const forceDirectionY = dy / distance;
+                            const force = (mouseDistance - distance) / mouseDistance;
+                            const directionX = forceDirectionX * force * this.size;
+                            const directionY = forceDirectionY * force * this.size;
+                            this.x -= directionX; // Move away from mouse
+                            this.y -= directionY;
+                        }
+                    }
+                }
+
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = this.color;
+                    ctx.fill();
+                }
+            }
+
+            // Initialize Particles
+            function init() {
+                particles = [];
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push(new Particle());
+                }
+            }
+            init();
+
+            // Animation Loop
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+
+                    // Draw connections
+                    for (let j = i; j < particles.length; j++) {
+                        let dx = particles[i].x - particles[j].x;
+                        let dy = particles[i].y - particles[j].y;
+                        let distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < connectionDistance) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = `rgba(106, 177, 0, ${1 - distance / connectionDistance})`;
+                            ctx.lineWidth = 1;
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(animate);
+            }
+            animate();
+        })();
+    </script>
+</body>
+
+</html>
