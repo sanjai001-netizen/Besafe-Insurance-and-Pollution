@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vehicle Insurance - BeSafe</title>
+    <link rel="icon" href="Images/png" type="image/x-icon">
+    <link rel="stylesheet" href="besafe.css">
+    <style>
+        .page-content {
+            padding-top: 100px;
+            min-height: 80vh;
+        }
+
+        /* FAQ Section Styles */
+        .faq-section {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .faq-question {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 10px auto;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 600px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-dark);
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover {
+            border-color: var(--accent-green);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 24px;
+            color: var(--accent-green);
+            font-weight: bold;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #666;
+            transition: 0.2s;
+        }
+
+        .close-modal:hover {
+            color: #000;
+        }
+
+        .modal-body {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            line-height: 1.6;
+        }
+
+        .modal-title {
+            color: var(--accent-green);
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        /* Two column layout for bilingual text */
+        .bilingual-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .lang-col {
+            flex: 1;
+            min-width: 300px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 10px;
+        }
+
+        .lang-col h4 {
+            margin-bottom: 10px;
+            color: #555;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Reuse Header -->
+    <header>
+        <a href="index.html" class="logo-link">
+            <img src="Images/png" alt="BeSafe Logo">
+            <h1>BeSafe Insurance and Pollution</h1>
+        </a>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav id="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="index.html#servicesdiv">Services</a>
+            <a href="index.html#plansdiv">Insurance Plans</a>
+            <a href="index.html#branchdiv">Branches</a>
+            <a href="index.html#contactdiv">Contact</a>
+        </nav>
+    </header>
+
+    <div class="page-content page-max">
+
+        <!-- PLANS SECTION (Copied from index.html) -->
+        <section class="plansdiv" id="plansdiv" style="margin-top: 20px;">
+            <h2 class="plans-title">Third Party Insurance Rates</h2>
+
+            <div class="plans-container">
+                <!-- TWO WHEELER CARD -->
+                <div class="plan-card">
+                    <h3>Two Wheeler</h3>
+                    <table class="plan-table">
+                        <thead>
+                            <tr>
+                                <th>Engine CC</th>
+                                <th>Liability</th>
+                                <th>PA Cover</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>75cc - 150cc</td>
+                                <td>₹843</td>
+                                <td>₹325</td>
+                                <td class="plan-price">₹1,167</td>
+                            </tr>
+                            <tr>
+                                <td>150cc - 350cc</td>
+                                <td>₹1,612</td>
+                                <td>₹325</td>
+                                <td class="plan-price">₹1,937</td>
+                            </tr>
+                            <tr>
+                                <td>350cc & Higher</td>
+                                <td>₹3,308</td>
+                                <td>₹325</td>
+                                <td class="plan-price">₹3,633</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- FOUR WHEELER CARD -->
+                <div class="plan-card">
+                    <h3>Four Wheeler (Private Car)</h3>
+                    <table class="plan-table">
+                        <thead>
+                            <tr>
+                                <th>Engine CC</th>
+                                <th>Liability + Drv</th>
+                                <th>PA Cover</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Less than 1000cc</td>
+                                <td>₹2,480 + ₹50</td>
+                                <td>₹325</td>
+                                <td class="plan-price">₹2,855</td>
+                            </tr>
+                            <tr>
+                                <td>1000cc - 1500cc</td>
+                                <td>₹4,040 + ₹50</td>
+                                <td>₹325</td>
+                                <td class="plan-price">₹4,415</td>
+                            </tr>
+                            <tr>
+                                <td>1500cc & Higher</td>
+                                <td>₹9,323 + ₹50</td>
+                                <td>₹325</td>
+                                <td class="plan-price">₹9,703</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA FORM -->
+        <section class="contactdiv">
+            <div class="contact-form-container">
+                <h2>Check Your Vehicle Insurance Premium</h2>
+                <p style="margin-bottom: 20px; color: #666;">Get expert assistance. We will check your status for you.
+                </p>
+
+                <form id="insuranceForm" onsubmit="sendInsuranceCheck(event)">
+                    <div class="form-group">
+                        <label for="i-name">Full Name</label>
+                        <input type="text" id="i-name" required placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="i-mobile">Mobile Number</label>
+                        <input type="tel" id="i-mobile" required placeholder="Enter your mobile number">
+                    </div>
+                    <div class="form-group">
+                        <label for="i-vehicle">Vehicle Number</label>
+                        <input type="text" id="i-vehicle" required placeholder="Enter vehicle number">
+                    </div>
+                    <button type="submit" class="submit-btn" style="background-color: var(--accent-green);">Check Status
+                        via WhatsApp</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION -->
+        <section class="faq-section">
+            <h2 class="plans-title" style="margin-bottom: 20px;">Common Doubts</h2>
+
+            <!-- Q1 -->
+            <div class="faq-question" onclick="openModal('modal-third-party')">
+                What is Liability only policy (Third Party)?
+            </div>
+
+            <!-- Q2 -->
+            <div class="faq-question" onclick="openModal('modal-package')">
+                What is Package Policy (First Class)?
+            </div>
+        </section>
+
+    </div>
+
+    <!-- MODALS -->
+
+    <!-- Modal 1: Third Party -->
+    <div id="modal-third-party" class="modal-overlay" onclick="closeModal(event, this)">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModalDirect('modal-third-party')">&times;</span>
+            <h3 class="modal-title">Liability Only Policy (Third Party)</h3>
+
+            <div class="bilingual-row">
+                <!-- Malayalam -->
+                <div class="lang-col">
+                    <h4>Malayalam</h4>
+                    <p><strong>തേർഡ് പാർട്ടി ഇൻഷുറൻസ്?</strong></p>
+                    <p>ഇൻഷുറൻസിൽ മൂന്ന് കക്ഷികളാണുള്ളത്:</p>
+                    <ul>
+                        <li><strong>ഒന്നാം കക്ഷി:</strong> ഇൻഷുറൻസ് പോളിസി എടുക്കുന്ന വാഹന ഉടമ.</li>
+                        <li><strong>രണ്ടാം കക്ഷി:</strong> ഇൻഷുറൻസ് കമ്പനി.</li>
+                        <li><strong>മൂന്നാം കക്ഷി:</strong> അപകടത്തിൽ നാശനഷ്ടങ്ങൾ സംഭവിക്കുന്ന മറ്റേതെങ്കിലും വ്യക്തി,
+                            വാഹനം അല്ലെങ്കിൽ വസ്തുവകകൾ.</li>
+                    </ul>
+                    <br>
+                    <p>നിങ്ങളുടെ വാഹനത്തിൽ നിന്ന് ഒരു മൂന്നാം കക്ഷിക്ക് പരിക്കോ മരണമോ വസ്തുവകകൾക്ക് നാശനഷ്ടമോ ഉണ്ടായാൽ,
+                        അതിനുള്ള നഷ്ടപരിഹാരം നിങ്ങളുടെ ഇൻഷുറൻസ് കമ്പനി നൽകും.</p>
+                    <p>ഇത് നിങ്ങളെ വലിയ സാമ്പത്തിക ബാധ്യതകളിൽ നിന്നും നിയമപരമായ പ്രശ്നങ്ങളിൽ നിന്നും സംരക്ഷിക്കുന്നു.
+                    </p>
+                    <p>ഇന്ത്യയിലെ മോട്ടോർ വാഹന നിയമം അനുസരിച്ച് എല്ലാ വാഹന ഉടമകൾക്കും തേർഡ് പാർട്ടി ഇൻഷുറൻസ്
+                        നിർബന്ധമാണ്. മറ്റൊരാൾക്ക് നിങ്ങളുടെ വാഹനം മൂലം ഉണ്ടാകുന്ന സാമ്പത്തിക ബാധ്യതകളിൽ നിന്ന് നിങ്ങളെ
+                        സംരക്ഷിക്കുക എന്നതാണ് ഇതിന്റെ പ്രധാന ലക്ഷ്യം.</p>
+                </div>
+
+                <!-- English Translation -->
+                <div class="lang-col">
+                    <h4>English</h4>
+                    <p><strong>What is Third Party Insurance?</strong></p>
+                    <p>There are three parties in insurance:</p>
+                    <ul>
+                        <li><strong>First Party:</strong> The vehicle owner who takes the policy.</li>
+                        <li><strong>Second Party:</strong> The insurance company.</li>
+                        <li><strong>Third Party:</strong> Any other person, vehicle, or property affected by an
+                            accident.</li>
+                    </ul>
+                    <br>
+                    <p>If your vehicle causes injury, death, or property damage to a third party, your insurance company
+                        will pay for the damages.</p>
+                    <p>This protects you from huge financial liabilities and legal issues.</p>
+                    <p>According to the Motor Vehicles Act in India, Third Party Insurance is mandatory for all vehicle
+                        owners. Its main goal is to protect you from financial liabilities towards others caused by your
+                        vehicle.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Package Policy -->
+    <div id="modal-package" class="modal-overlay" onclick="closeModal(event, this)">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModalDirect('modal-package')">&times;</span>
+            <h3 class="modal-title">Package Policy (First Class)</h3>
+
+            <div class="bilingual-row">
+                <!-- Malayalam -->
+                <div class="lang-col">
+                    <h4>Malayalam</h4>
+                    <p>"First class insurance" എന്നത് സാധാരണയായി കോംപ്രിഹെൻസീവ് ഇൻഷുറൻസ് പോളിസിയെ അർത്ഥമാക്കുന്നു, ഇത്
+                        നിങ്ങളുടെ സ്വന്തം വാഹനത്തിനും മൂന്നാം കക്ഷിക്കുമുണ്ടാകുന്ന നാശനഷ്ടങ്ങൾക്ക് പരിരക്ഷ നൽകുന്നു.</p>
+                    <p>ഇന്ത്യയിൽ തേർഡ് പാർട്ടി ഇൻഷുറൻസ് നിർബന്ധമാണെങ്കിലും, ഫസ്റ്റ് പാർട്ടി അല്ലെങ്കിൽ കോംപ്രിഹെൻസീവ്
+                        ഇൻഷുറൻസ് ഓപ്ഷണലാണ്, എന്നാൽ കൂടുതൽ സുരക്ഷയ്ക്കായി ഇത് തിരഞ്ഞെടുക്കുന്നതാണ് ഉചിതം.</p>
+                    <br>
+                    <p><strong>ഫസ്റ്റ് പാർട്ടി (കോംപ്രിഹെൻസീവ്) ഇൻഷുറൻസ്</strong></p>
+                    <p>ഇൻഷുറൻസിൽ പോളിസി എടുക്കുന്ന ഉടമയാണ് 'ഫസ്റ്റ് പാർട്ടി'. അതിനാൽ, ഫസ്റ്റ് പാർട്ടി ഇൻഷുറൻസ് എന്നത്
+                        പോളിസി ഉടമയുടെ സ്വന്തം വാഹനത്തിന് ഉണ്ടാകുന്ന നാശനഷ്ടങ്ങൾക്കുള്ള പരിരക്ഷയാണ്. ഇതിനെ ഓൺ ഡാമേജ് കവർ
+                        (Own Damage Cover) എന്നും വിളിക്കാറുണ്ട്.</p>
+                </div>
+
+                <!-- English Translation -->
+                <div class="lang-col">
+                    <h4>English</h4>
+                    <p>"First class insurance" usually refers to a <strong>Comprehensive Insurance Policy</strong>,
+                        which provides coverage for damages to your own vehicle as well as third parties.</p>
+                    <p>While Third Party Insurance is mandatory in India, First Party or Comprehensive Insurance is
+                        optional, but it is advisable to choose it for better protection.</p>
+                    <br>
+                    <p><strong>First Party (Comprehensive) Insurance</strong></p>
+                    <p>The owner taking the policy is the 'First Party'. Therefore, First Party Insurance covers damages
+                        to the policyholder's own vehicle. This is also commonly known as <strong>Own Damage
+                            Cover</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="footer-container page-max">
+            <!-- Quick Links -->
+            <div class="footer-col footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#servicesdiv">Services</a></li>
+                    <li><a href="index.html#plansdiv">Insurance Plans</a></li>
+                    <li><a href="index.html#branchdiv">Branches</a></li>
+                    <li><a href="index.html#contactdiv">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- 2. Social Media -->
+            <div class="footer-col footer-socials">
+                <h4>Connect With Us</h4>
+                <div class="social-icons">
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/besafekl71?igsh=ZnYxcnVpdTNwb2Rj" class="social-icon insta"
+                        aria-label="Instagram" target="_blank">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg>
+                    </a>
+
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/917356906050" class="social-icon wa" aria-label="WhatsApp" target="_blank">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+                        </svg>
+                    </a>
+
+                    <!-- Facebook -->
+                    <a href="#" class="social-icon fb" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg>
+                    </a>
+
+                    <!-- YouTube -->
+                    <a href="#" class="social-icon yt" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-col footer-brand">
+                <div class="footer-logo-row">
+                    <img src="Images/png" alt="BeSafe Insurance and Pollution">
+                    <h2>BeSafe Insurance and Pollution</h2>
+                </div>
+                <p style="color: #666; font-size: 14px; margin-top: 10px;">
+                    Besafe the complete Insurace solution.
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Besafe Insurance and Pollution. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Menu Toggle
+        const menuToggle = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // WhatsApp Sender
+        function sendInsuranceCheck(event) {
+            event.preventDefault();
+            const name = document.getElementById('i-name').value;
+            const mobile = document.getElementById('i-mobile').value;
+            const vehicle = document.getElementById('i-vehicle').value;
+
+            const message = `Hello Besafe, Please check my vehicle insurance status\n\nName: ${name}\nMobile: ${mobile}\nVehicle: ${vehicle}`;
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappNumber = "917356906050";
+
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+        }
+
+        // Modal Logic
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeModal(event, element) {
+            if (event.target === element) {
+                element.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        function closeModalDirect(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // --- BACKGROUND CANVAS ANIMATION ---
+        (function () {
+            const canvas = document.getElementById('bg-canvas');
+            const ctx = canvas.getContext('2d');
+            let width, height;
+            let particles = [];
+            const particleCount = 60;
+            const connectionDistance = 150;
+            const mouseDistance = 200;
+            let mouse = { x: null, y: null };
+
+            window.addEventListener('mousemove', (e) => {
+                mouse.x = e.x;
+                mouse.y = e.y;
+            });
+            window.addEventListener('mouseout', () => {
+                mouse.x = null;
+                mouse.y = null;
+            });
+
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height;
+                    this.vx = (Math.random() - 0.5) * 1.5;
+                    this.vy = (Math.random() - 0.5) * 1.5;
+                    this.size = Math.random() * 2 + 1;
+                    this.color = 'rgba(106, 177, 0, 0.6)';
+                }
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    if (this.x < 0 || this.x > width) this.vx *= -1;
+                    if (this.y < 0 || this.y > height) this.vy *= -1;
+                    if (mouse.x != null) {
+                        let dx = mouse.x - this.x;
+                        let dy = mouse.y - this.y;
+                        let distance = Math.sqrt(dx * dx + dy * dy);
+                        if (distance < mouseDistance) {
+                            const forceDirectionX = dx / distance;
+                            const forceDirectionY = dy / distance;
+                            const force = (mouseDistance - distance) / mouseDistance;
+                            const directionX = forceDirectionX * force * this.size;
+                            const directionY = forceDirectionY * force * this.size;
+                            this.x -= directionX;
+                            this.y -= directionY;
+                        }
+                    }
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = this.color;
+                    ctx.fill();
+                }
+            }
+
+            function init() {
+                particles = [];
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push(new Particle());
+                }
+            }
+            init();
+
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+                    for (let j = i; j < particles.length; j++) {
+                        let dx = particles[i].x - particles[j].x;
+                        let dy = particles[i].y - particles[j].y;
+                        let distance = Math.sqrt(dx * dx + dy * dy);
+                        if (distance < connectionDistance) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = `rgba(106, 177, 0, ${1 - distance / connectionDistance})`;
+                            ctx.lineWidth = 1;
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(animate);
+            }
+            animate();
+        })();
+    </script>
+</body>
+
+</html>
