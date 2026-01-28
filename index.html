@@ -50,9 +50,9 @@
     <section class="servicesdiv" id="servicesdiv">
         <a href="pollution_check.html" class="serv serv1">Pollution Testing</a>
         <a href="vehicle_insurance.html" class="serv serv2">Vehicle Insurance</a>
-        <a href="#" class="serv serv3">Health Insurance</a>
-        <a href="#" class="serv serv4">Life Insurance</a>
-        <a href="#" class="serv serv5">General Insurance</a>
+        <a href="health_insurance.html" class="serv serv3">Health Insurance</a>
+        <a href="life_insurance.html" class="serv serv4">Life Insurance</a>
+        <a href="general_insurance.html" class="serv serv5">General Insurance</a>
     </section>
 
     <section class="plansdiv page-max" id="plansdiv">
@@ -182,15 +182,18 @@
             <form id="contactForm" onsubmit="sendToWhatsApp(event)">
                 <div class="form-group">
                     <label for="name">Full Name</label>
-                    <input type="text" id="name" required placeholder="Enter your name">
+                    <input type="text" id="name" required placeholder="Enter your name"
+                        oninput="this.value = this.value.toUpperCase()">
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" required placeholder="Enter your phone number">
+                    <input type="tel" id="phone" required placeholder="Enter your phone number"
+                        oninput="this.value = this.value.toUpperCase()">
                 </div>
                 <div class="form-group">
                     <label for="vehicle">Vehicle Number</label>
-                    <input type="text" id="vehicle" required placeholder="Enter vehicle number">
+                    <input type="text" id="vehicle" required placeholder="Enter vehicle number"
+                        oninput="this.value = this.value.toUpperCase()">
                 </div>
                 <button type="submit" class="submit-btn">Send Message</button>
             </form>
