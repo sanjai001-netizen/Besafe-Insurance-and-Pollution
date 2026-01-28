@@ -40,7 +40,8 @@
     </header>
 
     <div class="page-content page-max">
-        <section class="contactdiv" style="margin-top: 0;">
+
+        <section class="contactdiv" style="margin-top: 20px;">
             <div class="contact-form-container">
                 <h2>Check Vehicle Pollution Status</h2>
                 <p style="margin-bottom: 20px; color: #666;">Enter your details below to check your status via WhatsApp.
@@ -49,18 +50,116 @@
                 <form id="pollutionForm" onsubmit="sendPollutionCheck(event)">
                     <div class="form-group">
                         <label for="p-name">Full Name</label>
-                        <input type="text" id="p-name" required placeholder="Enter your name">
+                        <input type="text" id="p-name" required placeholder="Enter your name"
+                            oninput="this.value = this.value.toUpperCase()">
                     </div>
                     <div class="form-group">
                         <label for="p-mobile">Mobile Number</label>
-                        <input type="tel" id="p-mobile" required placeholder="Enter your mobile number">
+                        <input type="tel" id="p-mobile" required placeholder="Enter your mobile number"
+                            oninput="this.value = this.value.toUpperCase()">
                     </div>
                     <div class="form-group">
                         <label for="p-vehicle">Vehicle Number</label>
-                        <input type="text" id="p-vehicle" required placeholder="Enter vehicle number">
+                        <input type="text" id="p-vehicle" required placeholder="Enter vehicle number"
+                            oninput="this.value = this.value.toUpperCase()">
                     </div>
                     <button type="submit" class="submit-btn">Check Status</button>
                 </form>
+            </div>
+        </section>
+
+        <!-- POLLUTION TARIFF SECTION -->
+        <section class="plansdiv" id="plansdiv" style="margin-top: 50px;">
+            <h2 class="plans-title">Pollution Testing Rates</h2>
+
+            <div class="plans-container pollution-plans">
+                <!-- LIGHT VEHICLES -->
+                <div class="plan-card">
+                    <h3>Light Vehicles</h3>
+                    <table class="plan-table">
+                        <thead>
+                            <tr>
+                                <th>Vehicle Type</th>
+                                <th>BS Standard</th>
+                                <th>Rate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2 Wheeler</td>
+                                <td>BS3 / BS4 / BS6</td>
+                                <td class="plan-price">₹80</td>
+                            </tr>
+                            <tr>
+                                <td>3 Wheeler</td>
+                                <td>BS3</td>
+                                <td class="plan-price">₹90</td>
+                            </tr>
+                            <tr>
+                                <td>3 Wheeler</td>
+                                <td>BS4 / BS6</td>
+                                <td class="plan-price">₹110</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- CARS -->
+                <div class="plan-card">
+                    <h3>Cars (Petrol & Diesel)</h3>
+                    <table class="plan-table">
+                        <thead>
+                            <tr>
+                                <th>Fuel Type</th>
+                                <th>BS Standard</th>
+                                <th>Rate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Petrol Car</td>
+                                <td>BS3 / BS4 / BS6</td>
+                                <td class="plan-price">₹100</td>
+                            </tr>
+                            <tr>
+                                <td>Diesel Car</td>
+                                <td>BS3</td>
+                                <td class="plan-price">₹110</td>
+                            </tr>
+                            <tr>
+                                <td>Diesel Car</td>
+                                <td>BS4 / BS6</td>
+                                <td class="plan-price">₹130</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- HEAVY VEHICLES -->
+                <div class="plan-card">
+                    <h3>Heavy Vehicles</h3>
+                    <table class="plan-table">
+                        <thead>
+                            <tr>
+                                <th>Vehicle Type</th>
+                                <th>BS Standard</th>
+                                <th>Rate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Heavy Vehicle</td>
+                                <td>BS3</td>
+                                <td class="plan-price">₹150</td>
+                            </tr>
+                            <tr>
+                                <td>Heavy Vehicle</td>
+                                <td>BS4 / BS6</td>
+                                <td class="plan-price">₹180</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
     </div>
