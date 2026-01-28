@@ -259,17 +259,20 @@
                 <form id="insuranceForm" onsubmit="sendInsuranceCheck(event)">
                     <div class="form-group">
                         <label for="i-name">Full Name</label>
-                        <input type="text" id="i-name" required placeholder="Enter your name">
+                        <input type="text" id="i-name" required placeholder="Enter your name"
+                            oninput="this.value = this.value.toUpperCase()">
                     </div>
                     <div class="form-group">
                         <label for="i-mobile">Mobile Number</label>
-                        <input type="tel" id="i-mobile" required placeholder="Enter your mobile number">
+                        <input type="tel" id="i-mobile" required placeholder="Enter your mobile number"
+                            oninput="this.value = this.value.toUpperCase()">
                     </div>
                     <div class="form-group">
                         <label for="i-vehicle">Vehicle Number</label>
-                        <input type="text" id="i-vehicle" required placeholder="Enter vehicle number">
+                        <input type="text" id="i-vehicle" required placeholder="Enter vehicle number"
+                            oninput="this.value = this.value.toUpperCase()">
                     </div>
-                    <button type="submit" class="submit-btn" style="background-color: var(--accent-green);">Check Premium
+                    <button type="submit" class="submit-btn" style="background-color: var(--accent-green);">Check Status
                         via WhatsApp</button>
                 </form>
             </div>
@@ -470,7 +473,7 @@
             const mobile = document.getElementById('i-mobile').value;
             const vehicle = document.getElementById('i-vehicle').value;
 
-            const message = `Hello Besafe, Please check my vehicle Insurance premium\n\nName: ${name}\nMobile: ${mobile}\nVehicle: ${vehicle}`;
+            const message = `Hello Besafe, Please check my vehicle insurance status\n\nName: ${name}\nMobile: ${mobile}\nVehicle: ${vehicle}`;
             const encodedMessage = encodeURIComponent(message);
             const whatsappNumber = "917356906050";
 
@@ -594,6 +597,4 @@
     </script>
 </body>
 
-
 </html>
-
